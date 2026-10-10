@@ -13,9 +13,19 @@ public class ProductService {
     public List<Product> getAllProducts() {
         return products;
     }
+
     public Product addProduct(Product product) {
         product.setId(nextId++);
         products.add(product);
         return product;
+    }
+
+    public Product getProductById(Long id) {
+        for (Product product : products) {
+            if (product.getId().equals(id)) {
+                return product;
+            }
+        }
+        return null;
     }
 }
